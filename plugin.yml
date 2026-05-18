@@ -1,0 +1,20 @@
+name: BeeWorldAntiRelog
+main: com.beeworld.antirelog.BeeWorldAntiRelogPlugin
+version: 1.0.0
+api-version: 1.16
+authors: [leymoo, sadolbunov, BeeWorld]
+description: BeeWorldAntiRelog server combat tag with bossbar, scoreboard and BeeWorldDuels integration.
+
+commands:
+  antirelog:
+    description: Manage BeeWorldAntiRelog.
+    aliases: [bwar, combat, pvp]
+    usage: /antirelog <give|take|status|reload>
+
+permissions:
+  beeworldantirelog.admin:
+    description: Access to all BeeWorldAntiRelog admin commands.
+    default: op
+  beeworldantirelog.bypass:
+    description: Bypass automatic combat tagging.
+    default: false

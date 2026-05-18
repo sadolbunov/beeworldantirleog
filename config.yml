@@ -1,0 +1,203 @@
+config-version: '1.7'
+
+messages:
+  # Для того, чтобы отключить сообщение, оставьте его пустым
+  pvp-started: '&6АнтиРелог &7» &fВы вошли в режим PvP. За выход с сервера - &cсмерть'
+  pvp-started-title: ''
+  pvp-stopped: '&6АнтиРелог &7» &fPvP режим &aзакончился&f. Можно спокойно выходить'
+  pvp-stopped-title: ''
+  pvp-stopped-subtitle: ''
+  pvp-stopped-actionbar: ''
+  in-pvp-bossbar: '&7До окончания PvP режима &c%time% &7сек.'
+  in-pvp-actionbar: ''
+  pvp-leaved: ''
+  commands-disabled: '&6АнтиРелог &7» &7Вы не можете использовать команды в режиме PvP.'
+  item-cooldown: '&6АнтиРелог &7» &7Вы сможете использовать этот предмет через &6%time% &7%formated-sec%.'
+  item-disabled-in-pvp: '&b&lВы не можете использовать этот предмет в &e&lPVP &b&lрежиме'
+  totem-cooldown: '&b&lТотем не был использован, т.к был недавно использован. Тотем будет доступен через &a&l%time% &b&l%formated-sec%.'
+  totem-disabled-in-pvp: '&b&lТотем не был использован, т.к он отключен в &e&lPVP &b&lрежиме'
+  pvp-started-with-powerups: '&7Вы ударили игрока! &7Креатив был отключен.'
+
+# Кулдаун для обычных золотых яблок во время пвп.
+golden-apple-cooldown: 5
+# Кулдаун для зачарованных золотых яблок во время пвп.
+# Значение 0 отключает кулдаун; -1 отключает использование во время пвп
+enchanted-golden-apple-cooldown: 60
+# Кулдаун для жемчугов края во время пвп.
+# Значение 0 отключает кулдаун; -1 отключает использование во время пвп
+ender-pearl-cooldown: 15
+# Кулдаун для корусов во время пвп.
+# Значение 0 отключает кулдаун; -1 отключает использование во время пвп
+chorus-cooldown: 5
+# Кулдаун для фейерверков во время пвп. (чтобы не убегали на элитрах)
+# Значение 0 отключает кулдаун; -1 отключает использование во время пвп
+firework-cooldown: 15
+# Кулдаун для тотемов бессмертия во время пвп.
+# Значение 0 отключает кулдаун; -1 отключает использование во время пвп
+totem-cooldown: 0
+
+# Длительность пвп
+pvp-time: 30
+
+# Отключить ли возможность писать команды в пвп?
+disable-commands-in-pvp: true
+
+# Команды которые можно писать во время пвп
+# Команды писать без '/'
+commands-whitelist:
+  - spec
+  - спек
+  - ызус
+  - benzospec
+  - contact
+  - hub
+
+# Отменять ли взаимодействие с энтити, во время пвп
+cancel-interact-with-entities: false
+# Убивать ли игрока если он вышел во время пвп?
+kill-on-leave: true
+# Убивать ли игрока если его кикнули во время пвп?
+kill-on-kick: true
+# Выполнять ли команды, если игрока кикнули во время пвп?
+run-commands-on-kick: true
+# Какой текст должен быть в причине кика, чтобы его убило/выполнились команды. Если пусто, то будет убивать/выполняться команды всегда
+kick-messages: []
+# Какие команды запускать от консоли при выходе игрока во время пвп?
+commands-on-leave: []
+# Отключать ли у игрока который ударил FLY, GM, GOD, VANISH?
+disable-powerups: true
+# Какие команды выполнять, если были отключены усиления у игрока
+commands-on-powerups-disable: []
+# Отключать ли возможность телепортироваться во время пвп?
+disable-teleports-in-pvp: false
+# Игнорировать ли PVP deny во время пвп между игроками?
+ignore-worldguard: false
+# Включать ли игроку, который не участвует в пвп и ударил другого игрока в pvp, pvp режим
+join-pvp-in-worldguard: false
+# В каких регионах не будет работать плагин
+ignored-worldguard-regions: []
+# Отключать ли активный ПВП режим когда игрок заходит в игнорируемый регион?
+disable-pvp-in-ignored-region: false
+# Скрывать ли сообщения о заходе игроков?
+hide-join-message: true
+# Скрывать ли сообщения о выходе игроков?
+hide-leave-message: true
+# Скрывать ли сообщение о смерти игроков?
+hide-death-message: true
+# Миры в котором плагин не работает
+disabledWorlds: []
+
+settings:
+  tag-on-player-damage: true
+  ignore-cancelled-damage: true
+  reset-timer-on-hit: true
+  remove-on-death: true
+  remove-on-kick: false
+  bypass-permission: 'beeworldantirelog.bypass'
+  blocked-commands-bypass-permission: 'beeworldantirelog.admin'
+  worlds:
+    mode: blacklist
+    list: []
+
+duels:
+  enabled: true
+  # Не выдавать КТ просто при старте дуэли. КТ выдается только после удара.
+  tag-on-match-start: false
+  # Если BeeWorldDuels отменяет урон своим обработчиком, удар все равно может выдать КТ участникам дуэли.
+  tag-on-cancelled-damage: true
+  remove-on-match-end: true
+  match-start-duration-seconds: 30
+  # Живому игроку в конце дуэли КТ снимается с задержкой. Для победителя по умолчанию 3 секунды.
+  # Мертвый игрок снимается сразу.
+  delay-alive-remove-seconds: 3
+
+quit-punish:
+  enabled: true
+  broadcast: false
+  commands:
+    - 'kill {player}'
+
+bossbar:
+  enabled: true
+  title: '&7До окончания PvP режима &c{time} &7сек.'
+  color: RED
+  # В Minecraft нет режима на 30 отдельных делений, поэтому прогресс уменьшается дискретно каждую секунду.
+  style: SOLID
+  flags: []
+
+scoreboard:
+  enabled: true
+  restore-previous-scoreboard: true
+  title: '&x&F&D&B&E&0&0&lP&x&F&C&8&D&1&5&lV&x&F&B&5&B&2&9&lP'
+  lines:
+    - ''
+    - '%opponents'
+    - ''
+    - ' &x&E&F&6&C&2&6ꐁ &fДо окончания PVP'
+    - ' &x&F&0&6&C&2&2ꐀ &fрежима &x&F&0&6&C&2&2%time!'
+    - ''
+    - '    &x&F&F&C&F&0&0&lB&x&F&F&C&5&0&0&le&x&F&F&B&A&0&0&le&x&F&F&B&0&0&0&lW&x&F&F&A&5&0&0&lo&x&F&F&9&B&0&0&lr&x&F&F&9&1&0&0&ll&x&F&F&8&6&0&0&ld&x&F&F&7&C&0&0&l.&x&F&F&7&1&0&0&lp&x&F&F&6&7&0&0&lw'
+    - ''
+  opponent-line-format: '&c- {player}'
+  dead-opponent-line-format: '&7- {player}: &cИгрок умер'
+  empty-opponents-line: '&7- нет'
+  max-opponents: 8
+  opponents:
+    line: '&f%player&f: &x&F&F&6&E&0&0%health хп'
+    empty: '&r'
+    '1':
+      - ' &x&E&0&5&5&3&9ꐀ&r %1'
+    '2':
+      - ' &x&E&0&5&5&3&9ꐁ&r %1'
+      - ' &x&E&2&5&D&3&6ꐀ&r %2'
+    '3':
+      - ' &x&E&0&5&5&3&9ꐁ&r %1'
+      - ' &x&E&2&5&D&3&6ꐁ&r %2'
+      - ' &x&E&5&6&5&3&2ꐀ&r %3'
+    '4':
+      - ' &x&E&0&5&5&3&9ꐁ&r %1'
+      - ' &x&E&2&5&D&3&6ꐁ&r %2'
+      - ' &x&E&5&6&5&3&2ꐁ&r %3'
+      - ' &x&E&7&6&D&2&Fꐀ&r %4'
+    '5':
+      - ' &x&E&0&5&5&3&9ꐁ&r %1'
+      - ' &x&E&2&5&D&3&6ꐁ&r %2'
+      - ' &x&E&5&6&5&3&2ꐁ&r %3'
+      - ' &x&E&7&6&D&2&Fꐁ&r %4'
+      - ' &x&E&A&7&6&2&Cꐀ&r %5'
+    '6':
+      - ' &x&E&0&5&5&3&9ꐁ&r %1'
+      - ' &x&E&2&5&D&3&6ꐁ&r %2'
+      - ' &x&E&5&6&5&3&2ꐁ&r %3'
+      - ' &x&E&7&6&D&2&Fꐁ&r %4'
+      - ' &x&E&A&7&6&2&Cꐁ&r %5'
+      - ' &x&E&C&7&E&2&9ꐀ&r %6'
+    '7':
+      - ' &x&E&0&5&5&3&9ꐁ&r %1'
+      - ' &x&E&2&5&D&3&6ꐁ&r %2'
+      - ' &x&E&5&6&5&3&2ꐁ&r %3'
+      - ' &x&E&7&6&D&2&Fꐁ&r %4'
+      - ' &x&E&A&7&6&2&Cꐁ&r %5'
+      - ' &x&E&C&7&E&2&9ꐁ&r %6'
+      - ' &x&E&F&8&6&2&5ꐀ&r %7'
+    '8':
+      - ' &x&E&0&5&5&3&9ꐁ&r %1'
+      - ' &x&E&2&5&D&3&6ꐁ&r %2'
+      - ' &x&E&5&6&5&3&2ꐁ&r %3'
+      - ' &x&E&7&6&D&2&Fꐁ&r %4'
+      - ' &x&E&A&7&6&2&Cꐁ&r %5'
+      - ' &x&E&C&7&E&2&9ꐁ&r %6'
+      - ' &x&E&F&8&6&2&5ꐁ&r %7'
+      - ' &x&F&1&8&E&2&2ꐀ&r %8'
+
+sounds:
+  entered-combat:
+    enabled: false
+    name: 'ENTITY_PLAYER_ATTACK_CRIT'
+    volume: 1.0
+    pitch: 1.0
+  left-combat:
+    enabled: false
+    name: 'ENTITY_EXPERIENCE_ORB_PICKUP'
+    volume: 1.0
+    pitch: 1.2
